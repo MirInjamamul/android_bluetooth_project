@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnOn = (Button)findViewById(R.id.turnOnBtn);
         Button btnOff = (Button)findViewById(R.id.turnOffBtn);
-
-
+        Button btnDiscoverable = (Button)findViewById(R.id.discoverableBtn);
 
         btnOn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
                 turnOff();
             }
         });
+
+        btnDiscoverable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                discoverableOn();
+            }
+        });
     }
 
     void turnOn(){
@@ -48,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
             }else {
                 Toast.makeText(getApplicationContext(), "Bluetooth already turned on", Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    void discoverableOn(){
+        if(!bluetoothAdapter.isDiscovering()){
+            startActivityForResult(new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE),1);
+            Toast.makeText(getApplicationContext(), "Making Device Discoverable", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(getApplicationContext(), "Already Discoverable started", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -17,8 +17,17 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/turnOffBtn"
+        android:id="@+id/discoverableBtn"
         android:layout_below="@+id/turnOnBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Dicoverable"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/turnOffBtn"
+        android:layout_below="@+id/discoverableBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="Turn Off"/>
